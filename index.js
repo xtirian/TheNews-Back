@@ -2,12 +2,16 @@
 const express = require('express')
 const app = express();
 
+
 //this is how we configure to pass a json for a user
 app.use(express.json());
 const port = 4000;
 
-//IMPORT ROUTES
-const routes = require('./src/routes');
+//IMPORT BCRYT
+const bcrypt = require('bcrypt');
+
+//IMPORT MODELS
+const userModel = require('./src/module/user/user.model')
 
 
 //GETTING STARTED
@@ -22,7 +26,12 @@ app.listen(port, () => {
 
 
 
-//ROUTES
-routes(app)
 
+
+//ROUTES
+const userRouter = require('./src/routes/users');
+const newsRouter = require('./src/routes/news');
+
+app.use('/users', userRouter);
+app.use('/news', newsRouter);
 

@@ -1,6 +1,8 @@
-import mongoose from "mongoose";
+const mongoose = require('../../config/mongo')
+const {Schema} = mongoose;
 
-const NewsSchema = new Schema(
+
+const newsSchema = new Schema(
   {
     nome: String,
     imgURL: String,
@@ -17,6 +19,4 @@ const NewsSchema = new Schema(
   } //mantem o registro do momento que o regitro foi criado ou atualizado.
 );
 
-const NewsModel = mongoose.model("news", NewsSchema);
-
-export default NewsModel;
+module.exports = mongoose.model("news", newsSchema);
