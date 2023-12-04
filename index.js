@@ -24,14 +24,18 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 
+//LOGIN
 
 
 
 
 //ROUTES
+
 const userRouter = require('./src/routes/users');
 const newsRouter = require('./src/routes/news');
 
 app.use('/users', userRouter);
 app.use('/news', newsRouter);
+
+
 
