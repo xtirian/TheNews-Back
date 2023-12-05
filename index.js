@@ -2,6 +2,8 @@
 const express = require('express')
 const app = express();
 
+const jwt = require('jsonwebtoken');
+
 
 //this is how we configure to pass a json for a user
 app.use(express.json());
@@ -24,8 +26,6 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 
-//LOGIN
-
 
 
 
@@ -33,7 +33,9 @@ app.listen(port, () => {
 
 const userRouter = require('./src/routes/users');
 const newsRouter = require('./src/routes/news');
+const loginRouter = require('./src/routes/login')
 
+app.use('/login', loginRouter)
 app.use('/users', userRouter);
 app.use('/news', newsRouter);
 
