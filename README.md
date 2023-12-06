@@ -113,3 +113,24 @@ app.post('/users', (req, res) => {
 ```
 
 Important to set the ``app.use(express.json())`` so we can use the json extensio when using 
+
+
+### Axios Bug
+
+I had to put the verify password inside a IF to veiry it just after confirming that the user exist in data base. before it I was struggling with an error. 
+
+```js
+//check password only if the user exist
+  if (verifyUser) {
+
+    //check password
+    const verifyPassword = bcrypt.compareSync(
+      req.body.password,
+      verifyUser.password
+    );
+    //...
+  }
+  
+```
+
+Now I know how to read the error messag of axios

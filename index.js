@@ -1,20 +1,15 @@
 // IMPORT AND CONFIG EXPRESS
 const express = require('express')
 const app = express();
+const cors = require('cors');
 
-const jwt = require('jsonwebtoken');
 
 
 //this is how we configure to pass a json for a user
 app.use(express.json());
-const port = 4000;
+const port = 8080;
 
-//IMPORT BCRYT
-const bcrypt = require('bcrypt');
-
-//IMPORT MODELS
-const userModel = require('./src/module/user/user.model')
-
+app.use(cors());
 
 //GETTING STARTED
 app.get('/', (req, res) => {
@@ -25,7 +20,6 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
-
 
 
 

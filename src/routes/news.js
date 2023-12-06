@@ -4,6 +4,7 @@ const newsModel = require('../module/news/news.model');
 const router = express.Router();
 
 
+
 router.get("/", async (req, res) => {
 
   const news = await newsModel.find({})
