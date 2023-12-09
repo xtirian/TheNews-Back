@@ -15,19 +15,21 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   
-  const news = await userModel.create({
-    nome: req.body.name,
-    imgURL: req.body.imgUrl,
-    title: req.body.title,
-    content: req.body.content,
-    description: req.body.description,
-    originalNews: req.body.originalNews,
+  const news = await newsModel.create({
     author: req.body.author,
+    content: req.body.content,
     date: req.body.date,
+    description: req.body.description,
+    imgURL: req.body.imgURL,
+    NewsFrom: req.body.NewsFrom,
+    originalNews: req.body.originalNews,
+    title: req.body.title,
   });
   
   //gonna return 201 for sucess when we are sign in an news
-  return res.status(201).json(news);
+  return res.status(201).json([news, {
+    message: "News created"
+  }]);
 });
 
 module.exports = router;
