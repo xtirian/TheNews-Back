@@ -2,6 +2,8 @@
 const express = require("express");
 const userModel = require("../module/user/user.model");
 const router = express.Router();
+const bcrypt = require('bcrypt')
+
 
 router.get("/", async (req, res) => {
   const users = await userModel.find({});
